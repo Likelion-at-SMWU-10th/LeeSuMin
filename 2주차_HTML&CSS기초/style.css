@@ -1,0 +1,42 @@
+body,h1,h2,p{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    min-width: fit-content;
+}
+
+h1{
+    font-size:36px;
+    font-weight:bold;
+    font-style:italic;
+}
+
+h2{
+    background-color: bisque;
+    font-size: 20px;
+    color:dimgray;
+    margin-bottom: 16px;
+    border-bottom: 1px solid cornsilk;
+    padding: 5px;
+}
+
+.mainbox{
+    width:610px;
+    padding:30px;
+    margin:30px;
+    margin-right:auto;
+    margin-left:auto;
+    border: 1px solid cornflowerblue;
+    box-shadow: 0 1px 20px 0 olive;
+}
+
+.myname{
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+section{
+    margin-bottom:24px;
+}
