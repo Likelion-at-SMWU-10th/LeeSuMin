@@ -3,9 +3,12 @@
 *{
     font-family: 'Gowun Dodum', sans-serif;
 }
+
 body,h1,h2,p{
     margin: 0px;
     padding: 0px;
+    background-color: rgb(0, 3, 55);
+    color : white;
 }
 
 body{
@@ -20,7 +23,7 @@ h1{
 
 h2{
     font-weight: bold;
-    background-color: bisque;
+    background-color: rgb(255, 253, 202);
     font-size: 20px;
     color:dimgray;
     margin-bottom: 16px;
@@ -45,4 +48,14 @@ h2{
 
 section{
     margin-bottom:24px;
+}
+
+.card-text{
+    background-color: white;
+    color: black;
+}
+
+.card-title{
+    background-color: rgb(250, 219, 255);
+    color: black;
 }
