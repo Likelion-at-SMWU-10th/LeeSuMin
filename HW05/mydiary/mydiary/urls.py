@@ -19,7 +19,7 @@ from diaryapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),
-    path('calendar/', views.calendar),
+    path('', views.home, name='home'),
+    path('calendar/', views.calendar, name='calendar'),
     path('daily/', include('daily.urls'))
 ]
