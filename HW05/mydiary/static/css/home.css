@@ -1,0 +1,25 @@
+body { 
+    text-align: center;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+img {
+    height: 500px;
+    width: 500px;
+    background:#000; /*Change this to a background image or remove*/
+    border:solid #fff;
+    border-width:6px 6px 20px 6px;
+    box-shadow:1px 1px 5px #333; /* Standard blur at 5px. Increase for more depth */
+    -webkit-box-shadow:1px 1px 5px #333;
+    -moz-box-shadow:1px 1px 5px #333;
+}
+
+table {
+    margin:auto; 
+}
+
+table, td, th {
+    border-collapse : collapse;
+    border : 1px solid black;
+};
