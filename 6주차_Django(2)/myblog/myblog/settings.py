@@ -108,11 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul' # 시간
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False # database에 저장되는 시간대를 false로 하면 timezone이랑 같은 시간대를 의미
 
 
 # Static files (CSS, JavaScript, Images)
