@@ -5,9 +5,6 @@ from .models import Blog
 def home(request):
     return render(request, 'blogapp/home.html')
 
-def community(request):
-    return render(request, 'blogapp/community.html')
-
 def blog(request):
     blogs = Blog.objects # 모델클래스.objects : 데이터베이스에 저장된 데이터를 '쿼리셋'형태로 반환
     return render(request, 'blogapp/blog.html', {'blogs': blogs})
