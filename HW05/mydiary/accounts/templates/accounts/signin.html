@@ -51,7 +51,7 @@
     </nav>
 
     <br>
-    <h1>Sign up!</h1>
+    <h1>Sign In!</h1>
     <br><br>
 
     {% if error %}
@@ -59,12 +59,11 @@
     <br><br>
     {% endif %}
 
-    <form action="{% url 'signup' %}" method="POST">
+    <form action="{% url 'signin' %}" method="POST">
         {% csrf_token %}
         아이디: <input type="text" name="userId" /><br>
-        비밀번호: <input type="password" name="password1" /><br>
-        비밀번호 확인: <input type="password" name="password2" /><br>
-        <input type="submit" value="회원가입" />
+        비밀번호: <input type="password" name="password" /><br>
+        <input type="submit" value="로그인" />
     </form>
 
 </body>
