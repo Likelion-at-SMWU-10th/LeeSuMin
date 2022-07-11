@@ -1,0 +1,12 @@
+{% extends 'diaryapp/base.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    { {form.as_p} }
+    <input type="submit" value="새 다이어리 작성">
+</form>
+
+{% endblock %}

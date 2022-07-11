@@ -59,8 +59,15 @@
             </div>
         </div>
     </nav>
-    {% block content %}
-    {% endblock %}
+    
+    <h1>Diary List</h1> <br>
+    
+    {% for diary in diarys.all %}
+        <h3>{{ diary.title }}</h3>
+        <p>{{ diary.pub_date }}</p>
+        <p>{{ diary.body }}</p>
+    {% endfor %}
+
 </body>
 
 </html>
