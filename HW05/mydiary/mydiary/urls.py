@@ -23,8 +23,11 @@ urlpatterns = [
     path('calendar/', views.calendar, name='calendar'),
     path('daily/', include('daily.urls')),
     path('accounts/', include('accounts.urls')),
-    #path('new/', views.new, name='new'),
-    #path('modelformcreate/', views.modelformcreate, name='modelformcreate'), # model form
+    path('new/', views.new, name='new'),
+    path('modelformcreate/', views.modelformcreate, name='modelformcreate'), # model form
     path('formcreate/', views.formcreate, name='formcreate'), # django form
     path('diarylist', views.diarylist, name='diarylist'),
+    path('edit/', views.edit, name='edit'),
+    path('diaryupdate/<int:diary_id>', views.diaryupdate, name='diaryupdate'),
+    path('diarydelete/<int:diary_id>', views.diarydelete, name='diarydelete'),
 ]

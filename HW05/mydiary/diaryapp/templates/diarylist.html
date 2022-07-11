@@ -24,19 +24,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'calendar'%}">Calendar</a>
+                        <a class="nav-link" href="{% url 'calendar' %}">Calendar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dailydiary'%}">Daily</a>
+                        <a class="nav-link" href="{% url 'dailydiary' %}">Daily</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'showdiary'%}">Show</a>
+                        <a class="nav-link" href="{% url 'showdiary' %}">Show</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'formcreate'%}">Django From 이용한 글쓰기</a>
+                        <a class="nav-link" href="{% url 'formcreate' %}">Django From 이용한 글쓰기</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'modelformcreate'%}">Model From 이용한 글쓰기</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'diarylist'%}">다이어리 보기</a>
@@ -59,13 +62,14 @@
             </div>
         </div>
     </nav>
-    
-    <h1>Diary List</h1> <br>
+    <br>
+    <h3>Diary List</h3> <br>
     
     {% for diary in diarys.all %}
-        <h3>{{ diary.title }}</h3>
-        <p>{{ diary.pub_date }}</p>
-        <p>{{ diary.body }}</p>
+        <h5>제목: {{ diary.title }}</h5>
+        <p>자세한 본문: {{ diary.body }}</p>
+        <a href = "{% url 'diaryupdate' diary.id %}">수정하기</a>
+        <a href = "{% url 'diarydelete' diary.id %}">삭제하기</a>
     {% endfor %}
 
 </body>

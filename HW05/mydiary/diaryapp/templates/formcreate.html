@@ -36,7 +36,13 @@
                         <a class="nav-link" href="{% url 'showdiary'%}">Show</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'formcreate'%}">Django From 이용한 글쓰기</a>
+                        <a class="nav-link" href="{% url 'formcreate' %}">Django From 이용한 글쓰기</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'modelformcreate' %}">Model From 이용한 글쓰기</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'diarylist'%}">다이어리 보기</a>
                     </li>
                     
                     {% if user.is_authenticated %}
@@ -59,15 +65,13 @@
     <br>
     <h3>장고 폼을 이용한 새 글 작성 페이지</h3>
     <br>
-
     <form action="" method="POST">
         {% csrf_token %}
 
         {{ form.as_p }}
-
         <input type="submit" value="새 다이어리 작성">
     </form>
-
+   
 </body>
 
 </html>
