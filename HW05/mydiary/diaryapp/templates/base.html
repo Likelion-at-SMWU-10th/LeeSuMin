@@ -35,6 +35,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'showdiary'%}">Show</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'formcreate' %}">Django From 이용한 글쓰기</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'modelformcreate'%}">Model From 이용한 글쓰기</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'diarylist'%}">다이어리 보기</a>
+                    </li>
+                    
+                    
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link">Hello, {{ user.username }}</a>

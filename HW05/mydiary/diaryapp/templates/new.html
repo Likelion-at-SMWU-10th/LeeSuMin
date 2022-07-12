@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<h3>모델 폼을 이용한 새 글 작성 페이지</h3>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <input type="submit" value="새 다이어리 작성">
+</form>
+
+{% endblock %}
