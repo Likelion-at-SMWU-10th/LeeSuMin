@@ -1,0 +1,28 @@
+{% extends 'blogapp/base.html' %}
+
+{% block content %}
+
+    <title>Blog</title>
+
+    <h1>Blog</h1> <br><br>
+
+    <h3>제목: {{ blog.title }}</h3>
+    <p> 날짜: {{ blog.pub_date }} </p>
+    <p> 자세한 본문: {{ blog.body }}</p>
+    <a href="{% url 'blogupdate' blog.id %}">수정하기</a>
+    <a href="{% url 'blogdelete' blog.id %}">삭제하기</a>
+    <br>
+    <br>
+    <form action="{% url 'commentcreate' blog.id %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">댓글 등록</button>
+    </form>
+
+    <br>
+    <h4>댓글 목록</h4>
+    {% for comment in blog.comment_set.all %}
+        {{ comment.content }}
+        <br>
+    {% endfor %}
+{% endblock %}

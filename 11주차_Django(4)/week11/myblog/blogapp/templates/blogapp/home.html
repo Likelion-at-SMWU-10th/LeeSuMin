@@ -1,0 +1,12 @@
+{% extends 'blogapp/base.html' %}
+
+{% block content %}
+{% load static %}
+
+    <title>Lion's blog</title>
+
+    <h1>This is Lion's blog</h1>
+    <a href="blog/">to blog page</a> <br><br>
+    <img src="{% static 'img/ddung.jpg' %}">
+    
+{% endblock %}
