@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Blog
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from django.utils import timezone
+from .models import Blog
 from .forms import BlogModelForm, CommentForm
+from .serializers import BlogSerializer
 
 # Create your views here.
 def home(request):
@@ -66,3 +69,10 @@ def commentcreate(request, blog_id):
             comment.save()
             
     return redirect('detail', blog_id=blog.pk)
+
+class BlogListAPI(APIView):
+    def get(self, request):
+        queryset = Blog.objects.all()
+        print(queryset)
+        serializer = BlogSerializer(queryset, many=True)
+        return Response(serializer.data)
