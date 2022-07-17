@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from blogapp import views
+from blogapp.views import BlogListAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +31,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('result', views.result, name='result'),
     path('commentcreate/<int:blog_id>', views.commentcreate, name='commentcreate'),
+    path('api/blog/', BlogListAPI.as_view()),
 ]
