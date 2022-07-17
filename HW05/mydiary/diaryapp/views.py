@@ -102,7 +102,3 @@ def commentdelete(request, comment_id):
     post = get_object_or_404(Comment, pk=comment_id)
     post.delete()
     return redirect('diarylist')
-
-
-       
-         

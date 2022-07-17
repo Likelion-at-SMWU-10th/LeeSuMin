@@ -4,12 +4,13 @@
 
     <title>Diary</title>
 
-    <h1>Diary</h1> <br><br>
+    <br>
+    <h1>{{ diary.date|truncatewords:1 }}의 다이어리</h1> <br>
 
-    <div style="width:60%; height: 200px; border: 3px solid orange; border-radius: 2em; margin: auto; padding-top:20px;" > 
-        <h3>제목: {{ diary.title }}</h3>
-        <p> 날짜: {{ diary.date }} </p>
-        <p> 자세한 본문: {{ diary.body }}</p>
+    <div style="width:60%; height: 200px; border: 3px solid orange; border-radius: 2em; margin: auto; padding-top: 25px;" > 
+        <h4>제목: {{ diary.title }}</h4>
+        <h6> 날짜: {{ diary.date }} </h6>
+        <h6> 자세한 본문: {{ diary.body }}</h6>
         <a href="{% url 'diaryupdate' diary.id %}">수정하기</a>
         <a href="{% url 'diarydelete' diary.id %}">삭제하기</a>
     </div>
