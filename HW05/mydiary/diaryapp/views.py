@@ -1,9 +1,9 @@
-from tracemalloc import get_object_traceback
-from django.shortcuts import get_object_or_404, render, redirect, get_list_or_404
+from xml.etree.ElementTree import Comment
+from django.shortcuts import get_object_or_404, render, redirect
 from django.utils import timezone
 
-from .models import Diary
-from .forms import DiaryForm, DiaryModelForm
+from .models import Diary, Comment
+from .forms import DiaryForm, DiaryModelForm, CommentForm
 
 # Create your views here.
 def home(request):
@@ -62,3 +62,47 @@ def diarydelete(request, diary_id):
     post = get_object_or_404(Diary, pk=diary_id)
     post.delete()
     return redirect('diarylist')
+
+def result(request):
+    query = request.GET.get('query', '')
+    if query: #query 값이 있다면
+        diary_objects = Diary.objects.filter(title__exact = query)
+        return render(request, 'result.html', {'result': diary_objects})
+    else: #query 값이 있다면
+        diary_objects = Diary.objects
+        return render(request,'result.html', {'result': diary_objects})
+
+def detail(request, diary_id):
+    diary = get_object_or_404(Diary, pk = diary_id)
+    form = CommentForm()
+    return render(request, 'detail.html', {'form': form, 'diary' : diary})
+
+def commentcreate(request, diary_id):
+    diary = get_object_or_404(Diary, pk=diary_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.diary = diary
+            comment.save()
+    return redirect('detail', diary_id=diary.pk)
+
+def commentupdate(request, comment_id):
+    post = get_object_or_404(Comment, pk=comment_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('diarylist')
+    else:
+        form = CommentForm(instance=post)            
+        return render(request, 'edit.html', {'form' : form})
+
+def commentdelete(request, comment_id):
+    post = get_object_or_404(Comment, pk=comment_id)
+    post.delete()
+    return redirect('diarylist')
+
+
+       
+         

@@ -30,4 +30,9 @@ urlpatterns = [
     path('edit/', views.edit, name='edit'),
     path('diaryupdate/<int:diary_id>', views.diaryupdate, name='diaryupdate'),
     path('diarydelete/<int:diary_id>', views.diarydelete, name='diarydelete'),
+    path('result',views.result, name='result'),
+    path('commentcreate/<int:diary_id>', views.commentcreate, name='commentcreate'),
+    path('detail/<int:diary_id>', views.detail, name='detail'),
+    path('commentupdate/<int:comment_id>', views.commentupdate, name='commentupdate'),
+    path('commentdelete/<int:comment_id>', views.commentdelete, name='commentdelete'),
 ]

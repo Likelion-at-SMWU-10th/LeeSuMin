@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <title>Diary</title>
+
+    <h1>Diary</h1> <br><br>
+
+    <div style="width:60%; height: 200px; border: 3px solid orange; border-radius: 2em; margin: auto; padding-top:20px;" > 
+        <h3>제목: {{ diary.title }}</h3>
+        <p> 날짜: {{ diary.date }} </p>
+        <p> 자세한 본문: {{ diary.body }}</p>
+        <a href="{% url 'diaryupdate' diary.id %}">수정하기</a>
+        <a href="{% url 'diarydelete' diary.id %}">삭제하기</a>
+    </div>
+    <br>
+    <form action="{% url 'commentcreate' diary.id %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">댓글 등록</button>
+    </form>
+    <br>
+    <h4>댓글 목록</h4>
+    {% for comment in diary.comment_set.all %}
+        <div style="width:60%; height: 50px; border: 1px solid rgb(184, 138, 245); border-radius: 2em; margin: auto; padding-top:10px;" > 
+            {{ comment.content }}
+            <a href="{% url 'commentupdate' comment.id %}">수정하기</a>
+            <a href="{% url 'commentdelete' comment.id %}">삭제하기</a>
+        </div>
+        <br>
+    {% endfor %}
+
+{% endblock %}

@@ -30,21 +30,11 @@
                         <a class="nav-link" href="{% url 'calendar'%}">Calendar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dailydiary'%}">Daily</a>
+                        <a class="nav-link" href="{% url 'modelformcreate'%}">Write DailyLife</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'showdiary'%}">Show</a>
+                        <a class="nav-link" href="{% url 'diarylist'%}">Diarys</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'formcreate' %}">Django From 이용한 글쓰기</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'modelformcreate'%}">Model From 이용한 글쓰기</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'diarylist'%}">다이어리 보기</a>
-                    </li>
-                    
                     
                     {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -60,6 +50,10 @@
                     </li>
                     {% endif %}
                 </ul>
+                <form class="d-flex" role="search" action="{% url 'result' %}" type="get">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
