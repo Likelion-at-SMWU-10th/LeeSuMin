@@ -9,7 +9,7 @@ def signup(request):
                 user = User.objects.get(username=request.POST['userId'])
                 return render(request, 'accounts/signup.html', {'error' : '이미 존재하는 아이디입니다.'} )
             except User.DoesNotExist:
-                user = User.objects.create_user(
+                user = User.create_user(
                     username = request.POST['userId'], password = request.POST['password1']
                 )
                 return redirect('../signin')

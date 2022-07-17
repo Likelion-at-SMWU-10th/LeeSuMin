@@ -2,16 +2,18 @@
 
 {% block content %}
     <br> <h3>Diary List</h3> <br>
-    
-    {% for diary in diarys.all %}
+        
+    {% for diary in result.all %}
     <div style="width:40%; height: 100px; border: 1px solid orange; border-radius: 2em; margin: auto" > 
         <h5>제목: {{ diary.title }}</h5>
         <p>자세한 본문: {{ diary.body }}</p>
         <a href = "{% url 'diaryupdate' diary.id %}">수정하기</a>
         <a href = "{% url 'diarydelete' diary.id %}">삭제하기</a>
-        <a href = "{% url 'detail' diary.id %}">보러가기</a>
+        
     </div>
     <br><br>
     {% endfor %}
+
+    <a href="/">to main page</a>
 
 {% endblock %}
