@@ -25,10 +25,8 @@ class CommentList(APIView):
 class BlogCommentList(APIView):
     def get(self, request, pk): # 모든 댓글 목록 조회하는 경우
         
-        blog_id = request.data['blog']
-        print(blog_id)
         comments = Comment.objects.filter(
-           blog = blog_id
+           blog = pk
         )
         serializer = CommentListSerializer(comments, many=True) # 다수의 쿼리셋 전달 위해서 many = True
         return Response(serializer.data)
