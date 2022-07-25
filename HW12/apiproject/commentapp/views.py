@@ -23,10 +23,12 @@ class CommentList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class BlogCommentList(APIView):
-    def get(self, request, blog_pk): # 모든 댓글 목록 조회하는 경우
+    def get(self, request, pk): # 모든 댓글 목록 조회하는 경우
+        
         blog_id = request.data['blog']
-        comments = Comment.objects.get(
-            blog_pk = blog_id
+        print(blog_id)
+        comments = Comment.objects.filter(
+           blog = blog_id
         )
         serializer = CommentListSerializer(comments, many=True) # 다수의 쿼리셋 전달 위해서 many = True
         return Response(serializer.data)
